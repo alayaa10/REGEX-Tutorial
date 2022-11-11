@@ -41,27 +41,21 @@ The "OR" operator within a regular expression is defined by using "|", which is 
 ### Character Classes
 A character class matches only a single character.
 Since it only matches one character class, gr[ae]y does not match graay, or graey. 
-You can find a word, even if it is misspelled, such as sep[ae]r[ae]te or li[cs]en[cs]e. You can find an identifier in a programming language with [A-Za-z_][A-Za-z_0-9]*. 
+You can find a word, even if it is misspelled, such as sep[ae]r[ae]te or li[cs]en[cs]e. You can find an identifier in a programming language with [A-Za-z_][A-Za-z_0-9]*. You can find a C-style hexadecimal number with 0[xX][A-Fa-f0-9]+.
 
 ### Flags
 Flags are placed at the end of a regex, after the second slash, and they define additional functionality or limits for the regex.
-There are 6 types of regex flags that can be used, seperatley, together or any order but the main ones are
 -  g—Global search: the regex should be tested against all possible matches in a string.
 
--  i—Case-insensitive search: case should be ignored while attempting a match in a string
-
--  m—Multi-line search: a multi-line input string should be treated as multiple lines
-
 ### Grouping and Capturing
-The primary way you group a section of a regex is by using parentheses (()). Each section within parentheses is known as a subexpression.
+Grouping occurs when the () is used. This indicates a group of the string being comapared to a regular expression. 
+Our email regular expression would be /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 ### Bracket Expressions
-A bracket expression is anything inside of square brackets ([]) represents the range of characters we want to match. This pattern can also be known as 'positive character groups'. 
-[a-z]—The string can contain any lowercase letter between a–z. Keep in mind that this looks for lowercase characters only. If we wanted to include uppercase characters, we would need to change the expression to [a-zA-Z].
-
-[0-9]—The string can contain any number between 0–9
-
-[_-]—The string can contain an underscore or hyphen. Both the underscore and the hyphen are called special characters.
+A bracket expression is anything inside of square brackets ([]) represents the range of characters we want to match. 
+- username: ([a-zA-Z0-9._-]+)
+- email host name: ([a-zA-Z0-9._-]+)
+- domain: ([a-zA-Z]{2,4})
 
 ### Greedy and Lazy Match
 THIS EXPRESSION DOESN'T HAVE GREEDY OR LAZY MATCHES.
